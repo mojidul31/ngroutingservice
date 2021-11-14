@@ -1,32 +1,32 @@
 <h2>Product List</h2>
-    <table width="60%" class="responsive-table table-striped table-bordered table-hover">
-        <thead>  
-            <tr >  
-                <td>ID</td>  
-                <td>Name</td>  
-                <td>Quantity</td>  
-                <td>Price</td>  
-            </tr>  
-        </thead>  
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td>  
-                    <span>{{product.id}}</span>
-                </td>  
-                <td>  
-                    <span>{{product.name}}</span>
-                </td>  
-                <td>
-                    <span>{{product.quantity}}</span>
-                </td>  
-                <td style="text-align:right;">
-                    <span>{{product.price}}</span>
-                </td>
+<table width="60%" class="responsive-table table-striped table-bordered table-hover">
+    <thead>  
+        <tr >  
+            <td>ID</td>  
+            <td>Name</td>  
+            <td>Quantity</td>  
+            <td>Price</td>  
+        </tr>  
+    </thead>  
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>  
+                <span>{{product.id}}</span>
+            </td>  
+            <td>  
+                <span>{{product.name}}</span>
+            </td>  
+            <td>
+                <span>{{product.quantity}}</span>
+            </td>  
+            <td style="text-align:right;">
+                <span>{{product.price}}</span>
+            </td>
+        </tr>
+        <tr> 
+            <td colspan="2" style="text-align:right;"><b>Total:</b> </td>  
+            <td colspan="1">{{totalQuantity}}</td>
+            <td colspan="1" style="text-align:right;"><b>${{total | number:'2.2-2'}}</b> </td>  
             </tr>
-            <tr> 
-                <td colspan="2" style="text-align:right;"><b>Total:</b> </td>  
-                <td colspan="1">{{totalQuantity}}</td>
-                <td colspan="1" style="text-align:right;"><b>${{total | number:'2.2-2'}}</b> </td>  
-                </tr>
-        </tbody>
-    </table>
+    </tbody>
+</table>
