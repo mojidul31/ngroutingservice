@@ -1,3 +1,58 @@
+<div>  
+    <form [formGroup]="productForm" (ngSubmit)="saveProduct()">  
+        <table style="width:60%;" cellpadding="5" cellspacing="5">  
+            <tr>  
+                <td style="width:20%;">  
+                    <label for="email" class="align">Product Name</label>  
+                </td>  
+                <td style="width:80%;">  
+                    <input type="text" name="name" id="name" [formControl]="name">  
+                    <div [hidden]="name.valid || name.untouched" class="error"> 
+                        <div [hidden]="!name.hasError('required')">  
+                            Product name is required.  
+                        </div>  
+                    </div>  
+                </td>  
+            </tr>             
+            <tr>  
+                <td style="width:20%;">  
+                    <label for="password" class="align">Quantity</label>  
+                </td>  
+                <td style="width:80%;">  
+                    <input type="number" name="quantity" id="quantity" [formControl]="quantity">  
+                    <div [hidden]="quantity.valid || quantity.untouched" class="error">  
+                        <div [hidden]="!quantity.hasError('required')">  
+                            Quantity is required.  
+                        </div>
+                    </div>  
+                </td>  
+            </tr> 
+            <tr>  
+                <td style="width:20%;">  
+                    <label for="price" class="align">Price</label>  
+                </td>  
+                <td style="width:80%;">  
+                    <input type="number" name="price" id="price" [formControl]="price">  
+                    <div [hidden]="price.valid || price.untouched" class="error">  
+                        <div [hidden]="!price.hasError('required')">  
+                            Price is required.  
+                        </div>
+                    </div>  
+                </td>  
+            </tr>   
+            <tr>  
+                <td style="width:20%;"></td>  
+                <td style="width:80%;">  
+                    <button type="submit" [disabled]="!productForm.valid">Save</button>  
+                </td>  
+            </tr>  
+        </table>  
+    </form>  
+    <div *ngIf="showMessage">        
+        <h3>{{apiMessage}}</h3>
+    </div>  
+</div>
+
 <h2>Product List</h2>
 <table width="60%" class="responsive-table table-striped table-bordered table-hover">
     <thead>  
