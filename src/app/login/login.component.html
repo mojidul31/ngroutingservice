@@ -1,0 +1,48 @@
+<h3>LogIn Page</h3>  
+<div>  
+    <form [formGroup]="loginForm" (ngSubmit)="registerUser()">  
+        <table style="width:60%;" cellpadding="5" cellspacing="5">  
+            <tr>  
+                <td style="width:20%;">  
+                    <label for="email" class="align">User Name</label>  
+                </td>  
+                <td style="width:80%;">  
+                    <input type="text" name="email" id="email" [formControl]="email">  
+                    <div [hidden]="email.valid || email.untouched" class="error">  
+                        <div [hidden]="!email.hasError('minlength')">  
+                            Username can not be shorter than 5 characters.  
+                        </div>  
+                        <div [hidden]="!email.hasError('required')">  
+                            Username is required.  
+                        </div>  
+                    </div>  
+                </td>  
+            </tr>             
+            <tr>  
+                <td style="width:20%;">  
+                    <label for="password" class="align">Password</label>  
+                </td>  
+                <td style="width:80%;">  
+                    <input type="password" name="password" id="password" [formControl]="password">  
+                    <div [hidden]="password.valid || password.untouched" class="error">  
+                        <div [hidden]="!password.hasError('required')">  
+                            The password is required.  
+                        </div>
+                        <div [hidden]="!password.hasError('minlength')">  
+                            Password can not be shorter than 6 characters.  
+                        </div>
+                    </div>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td style="width:20%;"></td>  
+                <td style="width:80%;">  
+                    <button type="submit" [disabled]="!loginForm.valid">Log In</button>  
+                </td>  
+            </tr>  
+        </table>  
+    </form>  
+    <div *ngIf="showMessage">        
+        <h3>{{apiMessage}}</h3>
+    </div>  
+</div>
