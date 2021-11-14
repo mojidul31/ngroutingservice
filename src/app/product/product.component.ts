@@ -76,7 +76,9 @@ export class ProductComponent implements OnInit {
 
   findsum(data:any){
     console.log(data);
-    this.value=data;  
+    this.value=data;
+    this.total = 0;
+    this.totalQuantity = 0; 
     for(let j=0;j<data.length;j++){   
          this.total += this.value[j].price;
          this.totalQuantity += this.value[j].quantity;
